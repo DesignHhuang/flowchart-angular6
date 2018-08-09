@@ -15,4 +15,6 @@
 > * 项目原因，部分核心工程代码没有放上去，如果有需要的同学可以加我微信
 
 ### 我的微信：
-![image](https://github.com/DesignHhuang/flowchart-angular6/src/assets/image/hlm.jpg)
+![image](https://github.com/DesignHhuang/flowchart-angular6/blob/master/src/assets/image/hlm.jpg)
+
+
