@@ -1,0 +1,10 @@
+<simple-table [data]="(rawdatas$ | async)" [columns]="searchColumn" size="small" ps="5" [toTopInChange]="false">
+</simple-table>
+
+<nz-upload nzType="drag" [nzMultiple]="true" [nzLimit]="2" nzAction="https://jsonplaceholder.typicode.com/posts/" (nzChange)="handleChange($event)">
+    <p class="ant-upload-drag-icon">
+        <i class="anticon anticon-upload"></i>
+    </p>
+    <p class="ant-upload-text">点击选择文件或将文件拖至此处</p>
+    <p class="ant-upload-hint">支持单个文件或批量上传</p>
+</nz-upload>

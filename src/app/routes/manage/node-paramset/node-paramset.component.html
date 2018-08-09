@@ -1,0 +1,59 @@
+<nz-card [nzBordered]="false">
+    <form nz-form [formGroup]="form" (ngSubmit)="submit()">
+        <nz-form-item>
+            <nz-form-label nzXs="24" nzSm="7" nzRequired nzFor="param1">预留参数1</nz-form-label>
+            <nz-form-control nzXs="24" nzSm="12" nzMd="10">
+                <input nz-input formControlName="param1" id="param1" placeholder="请输入参数">
+                <nz-form-explain *ngIf="form.get('param1').dirty && form.get('param1').errors">请输入参数1</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzXs="24" nzSm="7" nzRequired nzFor="param2">预留参数2</nz-form-label>
+            <nz-form-control nzXs="24" nzSm="12" nzMd="10">
+                <input nz-input formControlName="param2" id="param2" placeholder="请输入参数">
+                <nz-form-explain *ngIf="form.get('param2').dirty && form.get('param2').errors">预留参数2</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzXs="24" nzSm="7" nzRequired nzFor="param3">预留参数3</nz-form-label>
+            <nz-form-control nzXs="24" nzSm="12" nzMd="10">
+                <input nz-input formControlName="param3" id="param3" placeholder="请输入参数">
+                <nz-form-explain *ngIf="form.get('param3').dirty && form.get('param3').errors">预留参数3</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzXs="24" nzSm="7" nzRequired nzFor="param4">预留参数4</nz-form-label>
+            <nz-form-control nzXs="24" nzSm="12" nzMd="10">
+                <input nz-input formControlName="param4" id="param4" placeholder="请输入参数">
+                <nz-form-explain *ngIf="form.get('param4').dirty && form.get('param4').errors">预留参数4</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzXs="24" nzSm="7" nzRequired nzFor="param5">预留参数5</nz-form-label>
+            <nz-form-control nzXs="24" nzSm="12" nzMd="10">
+                <input nz-input formControlName="param5" id="param5" placeholder="请输入参数">
+                <nz-form-explain *ngIf="form.get('param5').dirty && form.get('param5').errors">预留参数5</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzXs="24" nzSm="7" nzRequired nzFor="param6">预留参数6</nz-form-label>
+            <nz-form-control nzXs="24" nzSm="12" nzMd="10">
+                <input nz-input formControlName="param6" id="param6" placeholder="请输入参数">
+                <nz-form-explain *ngIf="form.get('param6').dirty && form.get('param6').errors">预留参数6</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzXs="24" nzSm="7" nzRequired nzFor="param7">预留参数7</nz-form-label>
+            <nz-form-control nzXs="24" nzSm="12" nzMd="10">
+                <input nz-input formControlName="param7" id="param7" placeholder="请输入参数">
+                <nz-form-explain *ngIf="form.get('param7').dirty && form.get('param7').errors">预留参数7</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 10, offset: 7 }">
+                <button nz-button nzType="primary" type="submit" [nzLoading]="submitting">提交</button>
+                <button nz-button class="ml-sm">重置</button>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+</nz-card>

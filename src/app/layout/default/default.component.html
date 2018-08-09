@@ -1,0 +1,35 @@
+<button nz-button nzType="primary" (click)="baocun()">保存</button>
+<button nz-button nzType="primary" (click)="jiazai()">加载</button>
+<textarea id="jsonOutput" rows="10" style="width: 600px;"></textarea>
+<textarea id="jsonInput" rows="10" style="width: 600px;"></textarea>
+<nz-row [nzGutter]="24">
+    <nz-col [nzSpan]="3">
+        <nz-card nzTitle="工具库" class="ant-card__body-nopadding" style="height: 750px;">
+            <a (click)="getTools(0)" class="d-block py-sm px-md" [ngClass]="{'bg-primary-light text-white':active===0}">全部工具</a>
+            <a (click)="getTools(1)" class="d-block py-sm px-md" [ngClass]="{'bg-primary-light text-white':active===1}">public</a>
+            <a (click)="getTools(2)" class="d-block py-sm px-md" [ngClass]="{'bg-primary-light text-white':active===2}">Transcriptome</a>
+            <a (click)="getTools(3)" class="d-block py-sm px-md" [ngClass]="{'bg-primary-light text-white':active===3}">Resequencing</a>
+            <a (click)="getTools(4)" class="d-block py-sm px-md" [ngClass]="{'bg-primary-light text-white':active===4}">SmallRNA</a>
+            <a (click)="getTools(5)" class="d-block py-sm px-md" [ngClass]="{'bg-primary-light text-white':active===5}">Epigenetics</a>
+            <a (click)="getTools(6)" class="d-block py-sm px-md" [ngClass]="{'bg-primary-light text-white':active===6}">Allgnment</a>
+            <a (click)="getTools(7)" class="d-block py-sm px-md" [ngClass]="{'bg-primary-light text-white':active===7}">Annotation</a>
+        </nz-card>
+    </nz-col>
+    <nz-col [nzSpan]="3">
+        <div style="height: 750px;overflow-y: auto;">
+            <div nz-row class="bg-primary rounded-md" id="tool.data.id" *ngFor="let tool of (tools$|async)" style="margin-bottom: 10px;margin-right: 5px"
+                [dndDraggable]="tool" [dndEffectAllowed]="'all'" (dndStart)="onDragStart($event)" (dndMoved)="onDraggableMoved($event)"
+                (dndCanceled)="onDragCanceled($event)" (dndEnd)="onDragEnd($event)">
+                <div nz-col nzSpan="12" class="p-md text-white">
+                    <div class="mt0">{{tool.name}}</div>
+                    <p class="text-nowrap mb0">版本：{{tool.version}}</p>
+                </div>
+            </div>
+        </div>
+    </nz-col>
+    <nz-col [nzSpan]="18">
+        <div id="flow-panel" dndDropzone (dndDrop)="onDrop($event)" style=" position:absolute;width:100%;height:
+            750px;background-color: rgba(0, 0, 0, 0.24) ">
+        </div>
+    </nz-col>
+</nz-row>

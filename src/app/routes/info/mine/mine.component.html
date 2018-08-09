@@ -1,0 +1,127 @@
+<page-header [autoTitle]="false"></page-header>
+<nz-row [nzGutter]="24">
+    <nz-col nzLg="18">
+        <nz-card nzTitle="我的任务" [nzBordered]="false" class="pie-card" [nzBodyStyle]="{'height': '250px'}">
+            <div nz-row [nzGutter]="4" style="padding:16px 0">
+                <div nz-col [nzSpan]="12">
+                    <g2-bar height="165" title="任务趋势" [data]="salesData"></g2-bar>
+                    <!-- <g2-pie [animate]="false" [percent]="28" subTitle="中式快餐" total="28%" [height]="128" [lineWidth]="2"></g2-pie> -->
+                </div>
+                <div nz-col [nzSpan]="12">
+                    <g2-bar height="165" title="任务趋势" [data]="salesData"></g2-bar>
+                    <!-- <g2-pie [animate]="false" color="#5DDECF" [percent]="22" subTitle="西餐" total="22%" [height]="128" [lineWidth]="2"></g2-pie> -->
+                </div>
+
+            </div>
+        </nz-card>
+    </nz-col>
+    <nz-col nzLg="6">
+        <nz-card nzTitle="我的储存资源" [nzBordered]="false" [nzBodyStyle]="{'height': '250px','text-align': 'center'}">
+            <g2-water-wave title="存储资源剩余" [percent]="34" [height]="140" style="margin: 30px auto;margin-bottom: 10px;"></g2-water-wave>
+            <div>已用空间300G/总空间1T</div>
+        </nz-card>
+
+    </nz-col>
+</nz-row>
+<nz-row>
+    <nz-card nzTitle="我的计算资源" [nzBordered]="false" [nzBodyStyle]="{'height': '250px'}">
+
+    </nz-card>
+</nz-row>
+<nz-row>
+    <nz-card nzTitle="我的任务(未完成任务)" [nzBordered]="false" [nzExtra]="extraTemplate">
+        <nz-tabset [nzType]="'card'" (nzSelectChange)="selectChange(event)">
+            <nz-tab nzTitle="抽提">
+                <simple-table #st [columns]="columns" [data]="users" [loading]="loading" (checkboxChange)="checkboxChange($event)" (filterChange)="getData()"
+                    [noResult]="'暂无数据'" [isPageIndexReset]="false">
+
+                </simple-table>
+            </nz-tab>
+            <nz-tab nzTitle="建库">
+                <nz-table #mySampleTable [nzData]="users" (nzCurrentPageDataChange)="currentPageDataChange($event)" (nzPageIndexChange)="refreshStatus()"
+                 (nzPageSizeChange)="refreshStatus()">
+                    <thead>
+                        <tr>
+                            <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+                            <th>编号</th>
+                            <th>名称</th>
+                            <th>状态</th>
+                            <th>创建时间</th>
+                            <th>开始时间</th>
+                            <th>完成时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of mySampleTable.data">
+                            <td nzShowCheckbox [(nzChecked)]="data.checked" [nzDisabled]="data.disabled" (nzCheckedChange)="refreshStatus($event)"></td>
+                            <td>{{data.id}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.condition}}</td>
+                            <td>{{data.time | _date}}</td>
+                            <td>{{data.time | _date}}</td>
+                            <td>{{data.time | _date}}</td>
+                        </tr>
+                    </tbody>
+                </nz-table>
+            </nz-tab>
+            <nz-tab nzTitle="测序">
+                <nz-table #mySampleTable [nzData]="users" (nzCurrentPageDataChange)="currentPageDataChange($event)" (nzPageIndexChange)="refreshStatus()"
+                 (nzPageSizeChange)="refreshStatus()">
+                    <thead>
+                        <tr>
+                            <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+                            <th>编号</th>
+                            <th>名称</th>
+                            <th>状态</th>
+                            <th>创建时间</th>
+                            <th>开始时间</th>
+                            <th>完成时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of mySampleTable.data">
+                            <td nzShowCheckbox [(nzChecked)]="data.checked" [nzDisabled]="data.disabled" (nzCheckedChange)="refreshStatus($event)"></td>
+                            <td>{{data.id}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.condition}}</td>
+                            <td>{{data.time | _date}}</td>
+                            <td>{{data.time | _date}}</td>
+                            <td>{{data.time | _date}}</td>
+                        </tr>
+                    </tbody>
+                </nz-table>
+            </nz-tab>
+            <nz-tab nzTitle="分析">
+                <nz-table #mySampleTable [nzData]="users" (nzCurrentPageDataChange)="currentPageDataChange($event)" (nzPageIndexChange)="refreshStatus()"
+                 (nzPageSizeChange)="refreshStatus()">
+                    <thead>
+                        <tr>
+                            <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+                            <th>编号</th>
+                            <th>名称</th>
+                            <th>状态</th>
+                            <th>创建时间</th>
+                            <th>开始时间</th>
+                            <th>完成时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of mySampleTable.data">
+                            <td nzShowCheckbox [(nzChecked)]="data.checked" [nzDisabled]="data.disabled" (nzCheckedChange)="refreshStatus($event)"></td>
+                            <td>{{data.id}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.condition}}</td>
+                            <td>{{data.time | _date}}</td>
+                            <td>{{data.time | _date}}</td>
+                            <td>{{data.time | _date}}</td>
+                        </tr>
+                    </tbody>
+                </nz-table>
+            </nz-tab>
+        </nz-tabset>
+
+  </nz-card>
+  <ng-template #extraTemplate>
+    <a [routerLink]="['/task/exp']">更多>></a>
+  </ng-template>
+</nz-row>
