@@ -1,0 +1,2 @@
+# flowchart-angular6
+一个基于jsplumb的使用angular6写的一个可拖拽的流程图实例
