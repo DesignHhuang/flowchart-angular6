@@ -3,6 +3,11 @@
 
 * 网上找了很久都没有找到用angular实现的可拖拽式的流程图组件，于是就基于jsplumb自己写了一个，实现了一些基本的功能，后续可能会再添加点。
 
+### demo演示
+![image](https://github.com/DesignHhuang/flowchart-angular6/blob/master/src/assets/image/yanshi.gif)
+![image](https://github.com/DesignHhuang/flowchart-angular6/blob/master/src/assets/image/yanshi2.gif)
+
+
 ### 实现的功能：
 > * 拖拽式添加节点
 > * 拖拽式连线
