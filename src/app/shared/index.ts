@@ -8,16 +8,10 @@ import { DelonACLModule } from '@delon/acl';
 import { DelonFormModule } from '@delon/form';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { CountdownModule } from 'ngx-countdown';
-import { UEditorModule } from 'ngx-ueditor';
-import { NgxTinymceModule } from 'ngx-tinymce';
 import { DndModule } from 'ngx-drag-drop';
 
 const THIRDMODULES = [
     NgZorroAntdModule,
-    CountdownModule,
-    UEditorModule,
-    NgxTinymceModule,
     DndModule,
 ];
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { environment } from '@env/environment';
-import { LayoutDefaultComponent } from '../layout/default/default.component';
+import { LayoutDefaultComponent } from './default/default.component';
 
 const routes: Routes = [
     {

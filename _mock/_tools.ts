@@ -52,8 +52,20 @@ function removeRawData(data) {
     return true;
 }
 
+function check(data) {
+    /* const sourcenode = _.find(list, { id: parseInt(data.sourcenode) });
+    const targetnode = _.find(list, { id: parseInt(data.targetnode) });
+    if (targetnode.inputFileSuffix.length == 0) {
+        return true;
+    } else {
+        return _.intersection(sourcenode.outputFileSuffix, targetnode.inputFileSuffix).length == 0 ? false : true;
+    } */
+    return true;
+}
+
 export const TOOLS = {
     'POST /tool': (req: MockRequest) => getTools(req.body.type),
+    'POST /tool/check': (req: MockRequest) => check(req.body),
     '/tool/:id': (req: MockRequest) => list.find(w => w.id === +req.params.id),
     '/rawdata': () => getRawDatas(),
     'POST /rawdata': (req: MockRequest) => saveRawData(req.body),
