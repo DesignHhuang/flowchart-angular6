@@ -29,6 +29,7 @@ export class NodeSelectfileComponent implements OnInit {
     ];
 
     ngOnInit() {
+        console.log('select start')
         this.getData();
     }
 
@@ -39,10 +40,10 @@ export class NodeSelectfileComponent implements OnInit {
         });
     }
 
-    checkboxChange(e, list: any[]) {
+    checkboxChange(e) {
+        console.log(e)
         if (e.type == "checkbox") {
-            console.log('checkboxChange', list);
-            this.filelist = list;
+            this.filelist = e.checkbox;
         }
     }
 

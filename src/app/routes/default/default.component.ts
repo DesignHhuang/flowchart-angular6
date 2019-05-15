@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import $ from 'jquery';
 import * as d3 from 'd3';
 declare const jsPlumb: any;
@@ -28,7 +28,7 @@ export class LayoutDefaultComponent implements OnInit {
     currentNodeData;
     instance;
 
-    constructor(private http: _HttpClient, private msg: NzMessageService, private modalService: NzModalService) {
+    constructor(private http: _HttpClient, private msg: NzMessageService, private modalService: NzModalService, private renderer: Renderer2) {
 
     }
 
@@ -115,8 +115,8 @@ export class LayoutDefaultComponent implements OnInit {
 
         /* <div id='" + nodeId + "-selectfile' title='详情'><i class='anticon anticon-profile'></i></div> */
 
-        $('#' + nodeId).append("<div class='huangcard'><div class='zuo'><div class='title'><strong>" + data.name + "</strong></div><div class='card-content'><i class='anticon anticon-user'></i><span class='mes'>" + data.id + "黄小民</span></div><div class='card-content'><i class='anticon anticon-message'></i><span class='mes'>低质量数据过滤</span></div><div class='card-content'><i class='anticon anticon-clock-circle-o'></i><span class='mes'>执行时间：20min20s</span></div></div><div class='you'><div id='" + nodeId + "-setting' title='参数设置'><i class='anticon anticon-setting'></i></div><div id='" + nodeId + "-inputFile' title='上传文件'><i class='anticon anticon-file-add'></i></div><div id='" + nodeId + "-delete' title='删除'><i class='anticon anticon-delete'></i></div></div></div>")
-        data.inputFile ? $('#' + nodeId + '-setting').hide() : $('#' + nodeId + '-inputFile').hide();
+        $('#' + nodeId).append($("<div class='huangcard'><div class='zuo'><div class='title'><strong>" + data.name + "</strong></div><div class='card-content'><i class='anticon anticon-user'></i><span class='mes'>" + data.id + "黄小民</span></div><div class='card-content'><i class='anticon anticon-message'></i><span class='mes'>低质量数据过滤</span></div><div class='card-content'><i class='anticon anticon-clock-circle-o'></i><span class='mes'>执行时间：20min20s</span></div></div><div class='you'><div id='" + nodeId + "-setting' title='参数设置'><i class='anticon anticon-setting'></i></div><div id='" + nodeId + "-inputFile' title='上传文件'><i class='anticon anticon-file-add'></i></div><div id='" + nodeId + "-delete' title='删除'><i class='anticon anticon-delete'></i></div></div></div>"));
+        /* data.inputFile ? $('#' + nodeId + '-setting').hide() : $('#' + nodeId + '-inputFile').hide(); */
         $('#' + nodeId + '-delete').click(function () {
             instance.detachAllConnections(nodeId);
             instance.deleteEndpoint(nodeId + "-Top");
@@ -135,6 +135,7 @@ export class LayoutDefaultComponent implements OnInit {
     }
 
     selectInputfileModal(nodeId, toolId) {
+        console.log("输入文件选择" + nodeId + 'tool' + toolId)
         this.modalService.create({
             nzTitle: '输入文件选择',
             nzContent: NodeSelectfileComponent,
