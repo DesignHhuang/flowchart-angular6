@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import $ from 'jquery';
-import * as d3 from 'd3'
+import * as d3 from 'd3';
 declare const jsPlumb: any;
 import { DndDropEvent } from 'ngx-drag-drop';
 import { _HttpClient } from '@delon/theme';

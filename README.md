@@ -17,9 +17,18 @@
 > * 上传文件
 > * 流程图转json数据
 > * json数据转流程图
-> * 项目原因，部分核心工程代码没有放上去，如果有需要的同学可以加我微信
+> * 连接线中新增按钮功能，可点击选择文件
 
-### 我的微信：
-![image](https://github.com/DesignHhuang/flowchart-angular6/blob/master/src/assets/image/hlm.jpg)
+### 使用
+> * clone代码
+> * npm install
+> * ng serve
+> * 在浏览器中浏览：localhost:4200
+
+
+
+
+
+
 
 
