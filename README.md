@@ -19,16 +19,24 @@
 > * json数据转流程图
 > * 连接线中新增按钮功能，可点击选择文件
 
+<<<<<<< HEAD
 ### 使用
+=======
+### 使用：
+
+>>>>>>> b2fb30d2780b6e0fc9ee8dd7fc6aa4d457ded70b
 > * clone代码
 > * npm install
 > * ng serve
 > * 在浏览器中浏览：localhost:4200
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> b2fb30d2780b6e0fc9ee8dd7fc6aa4d457ded70b
 
 
 
