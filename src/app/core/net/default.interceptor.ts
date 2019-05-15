@@ -27,7 +27,7 @@ export class DefaultInterceptor implements HttpInterceptor {
             case 200:
                 break;
             case 401:
-                this.goTo('/passport/login');
+                this.goTo('/');
                 break;
             case 403:
             case 404:
@@ -51,11 +51,11 @@ export class DefaultInterceptor implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler,
     ): Observable<
-    | HttpSentEvent
-    | HttpHeaderResponse
-    | HttpProgressEvent
-    | HttpResponse<any>
-    | HttpUserEvent<any>
+        | HttpSentEvent
+        | HttpHeaderResponse
+        | HttpProgressEvent
+        | HttpResponse<any>
+        | HttpUserEvent<any>
     > {
         let url = req.url;
         if (!url.startsWith('https://') && !url.startsWith('http://')) {

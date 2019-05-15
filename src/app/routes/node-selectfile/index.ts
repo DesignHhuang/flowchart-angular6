@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NzModalRef, NzMessageService, UploadFile } from 'ng-zorro-antd';
-import { SimpleTableColumn } from '@delon/abc';
+import { STColumn } from '@delon/abc';
 import { RawData } from '@domain';
 import { _HttpClient } from '@delon/theme';
 import { Observable } from 'rxjs';
@@ -12,7 +12,8 @@ import { Observable } from 'rxjs';
 })
 export class NodeSelectfileComponent implements OnInit {
 
-    @Input() projectId: number;
+    @Input() projectId: any;
+    @Input() nodeId: any;
     @Input() toolId: number;
     rawdatas$: Observable<RawData[]>;
     rawdatas: RawData[];
@@ -20,7 +21,7 @@ export class NodeSelectfileComponent implements OnInit {
 
     constructor(private modal: NzModalRef, private msg: NzMessageService, private http: _HttpClient, ) { }
 
-    selectColumn: SimpleTableColumn[] = [
+    selectColumn: STColumn[] = [
         { title: '编号', index: 'id', type: 'checkbox', className: 'text-center' },
         { title: '序号', index: 'id', className: 'text-center' },
         { title: '文件名', index: 'name', click: (item: any) => this.msg.success(item.name), className: 'text-center' },
@@ -38,9 +39,11 @@ export class NodeSelectfileComponent implements OnInit {
         });
     }
 
-    checkboxChange(list: any[]) {
-        console.log('checkboxChange', list);
-        this.filelist = list;
+    checkboxChange(e, list: any[]) {
+        if (e.type == "checkbox") {
+            console.log('checkboxChange', list);
+            this.filelist = list;
+        }
     }
 
     queren() {

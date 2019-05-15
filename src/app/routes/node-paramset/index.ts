@@ -9,7 +9,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 })
 export class NodeParamsetComponent implements OnInit {
 
-    @Input() projectId: number;
+    @Input() projectId: string;
     @Input() toolId: number;
     form: FormGroup;
     submitting = false;

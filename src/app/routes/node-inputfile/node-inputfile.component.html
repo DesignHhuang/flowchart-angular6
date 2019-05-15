@@ -1,7 +1,8 @@
-<simple-table [data]="(rawdatas$ | async)" [columns]="searchColumn" size="small" ps="5" [toTopInChange]="false">
-</simple-table>
+<st [data]="(rawdatas$ | async)" [columns]="searchColumn" size="small" ps="5">
+</st>
 
-<nz-upload nzType="drag" [nzMultiple]="true" [nzLimit]="2" nzAction="https://jsonplaceholder.typicode.com/posts/" (nzChange)="handleChange($event)">
+<nz-upload nzType="drag" [nzMultiple]="true" [nzLimit]="2" nzAction="https://jsonplaceholder.typicode.com/posts/"
+    (nzChange)="handleChange($event)">
     <p class="ant-upload-drag-icon">
         <i class="anticon anticon-upload"></i>
     </p>

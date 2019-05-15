@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NzModalRef, NzMessageService, UploadFile } from 'ng-zorro-antd';
-import { SimpleTableColumn } from '@delon/abc';
+import { STColumn } from '@delon/abc';
 import { RawData } from '@domain';
 import { _HttpClient } from '@delon/theme';
 import { Observable } from 'rxjs';
@@ -12,14 +12,14 @@ import { Observable } from 'rxjs';
 })
 export class NodeInputfileComponent implements OnInit {
 
-    @Input() projectId: number;
+    @Input() projectId: any;
     @Input() toolId: number;
     rawdatas$: Observable<RawData[]>;
     rawdatas: RawData[];
 
     constructor(private modal: NzModalRef, private msg: NzMessageService, private http: _HttpClient, ) { }
 
-    searchColumn: SimpleTableColumn[] = [
+    searchColumn: STColumn[] = [
         { title: '序号', index: 'id', className: 'text-center' },
         { title: '文件名', index: 'name', click: (item: any) => this.msg.success(item.name), className: 'text-center' },
         { type: 'date', title: '上传时间', index: 'createdAt', sorter: (a, b) => a.count - b.count, className: 'text-center' },
