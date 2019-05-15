@@ -163,7 +163,8 @@ export class LayoutDefaultComponent implements OnInit {
     }
 
     createSettingModal(toolId): void {
-        this.modalService.create({
+        console.log(toolId)
+        /* this.modalService.create({
             nzTitle: '参数设置',
             nzContent: NodeParamsetComponent,
             nzComponentParams: {
@@ -172,7 +173,20 @@ export class LayoutDefaultComponent implements OnInit {
             },
             nzMaskClosable: false,
             nzFooter: null,
+        }); */
+        const modal = this.modalService.create({
+            nzTitle: '参数设置',
+            nzContent: NodeParamsetComponent,
+            nzComponentParams: {
+                projectId: 'ceshicanshu1',
+                toolId: toolId
+            }
         });
+
+        modal.afterOpen.subscribe(() => console.log('[afterOpen] emitted!'));
+
+        // Return a result when closed
+        modal.afterClose.subscribe(result => console.log('[afterClose] The result is:', result));
     }
 
     addPorts(instance, node, ports) {

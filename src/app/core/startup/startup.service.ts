@@ -6,14 +6,10 @@ import { MenuService, SettingsService, TitleService, ALAIN_I18N_TOKEN } from '@d
 import { ACLService } from '@delon/acl';
 import { TranslateService } from '@ngx-translate/core';
 import { I18NService } from '@core/i18n/i18n.service';
-import { NzIconService } from 'ng-zorro-antd';
-import { ICONS_AUTO } from '../../../style-icons-auto';
-import { ICONS } from '../../../style-icons';
 
 @Injectable()
 export class StartupService {
     constructor(
-        iconSrv: NzIconService,
         private menuService: MenuService,
         private translate: TranslateService,
         @Inject(ALAIN_I18N_TOKEN) private i18n: I18NService,
@@ -22,7 +18,7 @@ export class StartupService {
         private titleService: TitleService,
         private httpClient: HttpClient,
         private injector: Injector,
-    ) { iconSrv.addIcon(...ICONS_AUTO, ...ICONS); }
+    ) { }
 
     load(): Promise<any> {
         return new Promise((resolve, reject) => {
